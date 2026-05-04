@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools >= 61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vcif-hlo"
+version = "0.1.0"
+description = "OpenHLO/tensor carrier for v4cat catalogues — third substrate-column counterpart to vcif and vcif-rdf"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Mike Mol", email = "mikemol@gmail.com" },
+]
+keywords = [
+    "v4cat",
+    "interchange",
+    "tensor",
+    "openhlo",
+    "stablehlo",
+    "knowledge-graph",
+    "structural-cataloguing",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "v4cat>=0.5",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+jax = [
+    "jax>=0.4",
+]
+vcif = [
+    "vcif>=0.1",
+]
+vcif-rdf = [
+    "vcif-rdf>=0.1",
+]
+
+[project.urls]
+Homepage   = "https://github.com/v4cat-oss/vcif-hlo"
+Spec       = "https://github.com/v4cat-oss/vcif-hlo/blob/main/docs/spec.md"
+Source     = "https://github.com/v4cat-oss/vcif-hlo"
+Issues     = "https://github.com/v4cat-oss/vcif-hlo/issues"
+Core       = "https://github.com/v4cat-oss/v4cat"
+SiblingJSON = "https://github.com/v4cat-oss/vcif"
+SiblingRDF = "https://github.com/v4cat-oss/vcif-rdf"
+
+[project.scripts]
+vcif-hlo = "vcif_hlo.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.pytest.ini_options]
+testpaths = ["src/vcif_hlo/tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
